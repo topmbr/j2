@@ -3,130 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JavaScript Tasks</title>
+    <title>Calculator Tests</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-2.16.0.css">
 </head>
 <body>
-    <script>
-        // Задача 1
-        let age = prompt("Введите свой возраст:");
-        if (age >= 0 && age <= 2) {
-            alert("Вы ребенок");
-        } else if (age >= 12 && age < 18) {
-            alert("Вы подросток");
-        } else if (age >= 18 && age < 60) {
-            alert("Вы взрослый");
-        } else if (age >= 60) {
-            alert("Вы пенсионер");
-        } else {
-            alert("Некорректный возраст");
-        }
-
-        // Задача 2
-        let number = prompt("Введите число от 0 до 9:");
-        switch (Number(number)) {
-            case 1: alert("!"); break;
-            case 2: alert("@"); break;
-            case 3: alert("#"); break;
-            // Добавьте остальные кейсы по аналогии
-            default: alert("Некорректное число");
-        }
-
-        // Задача 3
-        let threeDigitNumber = prompt("Введите трехзначное число:");
-        if (threeDigitNumber.length === 3 && threeDigitNumber[0] === threeDigitNumber[1] || threeDigitNumber[1] === threeDigitNumber[2] || threeDigitNumber[0] === threeDigitNumber[2]) {
-            alert("В числе есть одинаковые цифры");
-        } else {
-            alert("В числе нет одинаковых цифр");
-        }
-
-        // Задача 4
-        let year = prompt("Введите год:");
-        if ((year % 400 === 0) || (year % 4 === 0 && year % 100 !== 0)) {
-            alert("Год високосный");
-        } else {
-            alert("Год не високосный");
-        }
-
-        // Задача 5
-        let fiveDigitNumber = prompt("Введите пятиразрядное число:");
-        if (fiveDigitNumber.length === 5 && fiveDigitNumber === fiveDigitNumber.split('').reverse().join('')) {
-            alert("Число является палиндромом");
-        } else {
-            alert("Число не является палиндромом");
-        }
-
-        // Задача 6
-        let usdAmount = prompt("Введите количество USD:");
-        let currency = prompt("Выберите валюту для конвертации (EUR, UAN, AZN):");
-        let exchangeRates = {
-            EUR: 0.85,
-            UAN: 27.5,
-            AZN: 1.7
-        };
-        if (exchangeRates.hasOwnProperty(currency)) {
-            let convertedAmount = usdAmount * exchangeRates[currency];
-            alert(`Сумма в ${currency}: ${convertedAmount.toFixed(2)}`);
-        } else {
-            alert("Некорректная валюта");
-        }
-
-        // Задача 7
-        let purchaseAmount = prompt("Введите сумму покупки:");
-        let discount = 0;
-        if (purchaseAmount >= 200 && purchaseAmount < 300) {
-            discount = 3;
-        } else if (purchaseAmount >= 300 && purchaseAmount < 500) {
-            discount = 5;
-        } else if (purchaseAmount >= 500) {
-            discount = 7;
-        }
-        let discountedAmount = purchaseAmount - (purchaseAmount * discount / 100);
-        alert(`Сумма к оплате со скидкой ${discount}%: ${discountedAmount.toFixed(2)}`);
-
-        // Задача 8
-        let circumference = prompt("Введите длину окружности:");
-        let perimeter = prompt("Введите периметр квадрата:");
-        let circleRadius = circumference / (2 * Math.PI);
-        let squareSide = perimeter / 4;
-        if (circleRadius <= squareSide) {
-            alert("Окружность может поместиться в указанный квадрат");
-        } else {
-            alert("Окружность не может поместиться в указанный квадрат");
-        }
-
-        // Задача 9
-        let score = 0;
-        let answer1 = prompt("Сколько будет 2 + 2?\n1) 3\n2) 4\n3) 5");
-        let answer2 = prompt("Какая столица Франции?\n1) Лондон\n2) Париж\n3) Берлин");
-        let answer3 = prompt("Чему равен корень квадратный из 25?\n1) 3\n2) 4\n3) 5");
-
-        if (answer1 === "2") score += 2;
-        if (answer2 === "2") score += 2;
-        if (answer3 === "3") score += 2;
-
-        alert(`Вы набрали ${score} баллов`);
-
-        // Задача 10
-let inputDate = prompt("Введите дату в формате (дд.мм.гггг):");
-let dateParts = inputDate.split('.');
-let day = parseInt(dateParts[0]);
-let month = parseInt(dateParts[1]);
-let inputYear = parseInt(dateParts[2]);
-
-let daysInMonth = new Date(inputYear, month, 0).getDate();
-
-if (day < daysInMonth) {
-    day++;
-} else if (month < 12) {
-    day = 1;
-    month++;
-} else {
-    day = 1;
-    month = 1;
-    inputYear++;
-}
-
-alert(`Следующая дата: ${day}.${month}.${inputYear}`);
-    </script>
+    <div id="qunit"></div>
+    <div id="qunit-fixture"></div>
+    <script src="https://code.jquery.com/qunit/qunit-2.16.0.js"></script>
+    <script src="path/to/your/calculator.js"></script>
+    <script src="path/to/your/tests.js"></script>
 </body>
 </html>
